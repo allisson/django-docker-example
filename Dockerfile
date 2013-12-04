@@ -9,9 +9,6 @@ MAINTAINER Allisson Azevedo <allisson@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 ENV INITRD No
 
-# use myblog.settings_production
-ENV DJANGO_SETTINGS_MODULE myblog.settings_production
-
 # install packages
 RUN apt-get update
 RUN apt-get install -y git-core python-psycopg2 python-imaging python-pip supervisor
@@ -32,4 +29,4 @@ RUN rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 EXPOSE 8000
 
 # start supervisor
-CMD ["/usr/local/bin/honcho -d /deploy/myblog -f Procfile start"]
+CMD (cd /deploy/myblog && /usr/local/bin/honcho start)
