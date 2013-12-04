@@ -1,0 +1,28 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="author" content="{% block author %}{% endblock %}">
+    {# <link rel="shortcut icon" href="../../assets/ico/favicon.png"> #}
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "blog/css/uikit.gradient.min.css" %}">
+    {% block extrahead %}{% endblock %}
+  </head>
+
+  <body>
+
+    <div class="uk-container uk-container-center">
+
+      {% block content %}{% endblock %}
+
+    </div><!-- /.container -->
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="{% static "blog/js/uikit.min.js" %}"></script>
+    {% block extrajs %}{% endblock %}
+  </body>
+</html>

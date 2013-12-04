@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+
+{% block title %}Últimos Posts{% endblock%}
+
+
+{% block content %}
+
+  {% for post in post_list %}
+    <article class="uk-article">
+      <h1 class="uk-article-title"><a href="{% url 'blog_post_detail' post.slug %}">{{ post.title }}</a></h1>
+      <p class="uk-article-meta">Escrito em {{ post.created_on|date }}</p>
+      <p class="uk-article-lead">{{ post.content|linebreaks|truncatewords:40 }}</p>
+      <a href="{% url 'blog_post_detail' post.slug %}">Leia mais</a>
+    </article>
+  {% empty %}
+    <p>Sem posts no momento.</p>
+  {% endfor %}
+
+{% endblock %}
