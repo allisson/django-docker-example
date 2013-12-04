@@ -35,4 +35,4 @@ EXPOSE 8000
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # start supervisor
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/local/bin/honcho -d /deploy/myblog -f Procfile start"]

@@ -7,3 +7,4 @@ django-autoslug>=1.7.1
 gunicorn>=18.0
 South>=0.8.4
 model-mommy>=1.2
+honcho>=0.5.0
