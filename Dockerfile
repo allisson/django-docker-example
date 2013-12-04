@@ -31,8 +31,5 @@ RUN rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 # expose mysql port
 EXPOSE 8000
 
-# copy supervisor conf
-ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
 # start supervisor
 CMD ["/usr/local/bin/honcho -d /deploy/myblog -f Procfile start"]
