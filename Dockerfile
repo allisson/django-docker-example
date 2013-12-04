@@ -9,14 +9,17 @@ MAINTAINER Allisson Azevedo <allisson@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 ENV INITRD No
 
+# use myblog.settings_production
+ENV DJANGO_SETTINGS_MODULE myblog.settings_production
+
 # install packages
 RUN apt-get update
-RUN apt-get install -y python-psycopg2 python-imaging python-pip supervisor
+RUN apt-get install -y git-core python-psycopg2 python-imaging python-pip supervisor
 
 # setup app
 RUN mkdir /deploy/
 ADD myblog /deploy/myblog
-RUN (cd /deploy/myblog && pip install -r requirments.txt)
+RUN (cd /deploy/myblog && pip install -r requirements.txt)
 RUN (cd /deploy/myblog && python manage.py syncdb --noinput)
 RUN (cd /deploy/myblog && python manage.py migrate --noinput)
 RUN (cd /deploy/myblog && python manage.py collectstatic --noinput)
