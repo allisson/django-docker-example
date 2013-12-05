@@ -1,7 +1,7 @@
 Django<=1.7
 psycopg2
 PIL
--e git://github.com/kennethreitz/dj-static.git#egg=dj-static
+static3==0.5
 dj-database-url>=0.2.2
 django-autoslug>=1.7.1
 gunicorn>=18.0
