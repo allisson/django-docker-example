@@ -11,7 +11,7 @@ ENV INITRD No
 
 # install packages
 RUN apt-get update
-RUN apt-get install -y git-core python-psycopg2 python-imaging python-pip supervisor
+RUN apt-get install -y git-core python-psycopg2 python-imaging python-pip
 
 # setup app
 RUN mkdir /deploy/
